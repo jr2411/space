@@ -1,3 +1,8 @@
+#Signal analysis of an IQ recording from a FUNCube satellite.
+# A .wav file with satellite recording is needed!
+
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy
