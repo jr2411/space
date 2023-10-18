@@ -132,14 +132,14 @@ plt.xlabel("Frequency [kHz]")
 plt.ylabel("Time [s]")
 plt.show()
 
-# SYMBOL SYNCHRONIZATION. MUELLER AND MULLER TIME SYNC ALGORITHM
-samples = x # For the sake of matching variable names
+
+samples = x 
 samples_interpolated = resample_poly(samples, 32, 1) # 32 chosen as interpolation factor
 
 sps = 16
 mu = 0.01 # initial estimate of phase of sample
 out = np.zeros(len(samples) + 10, dtype=np.complex64)
-out_rail = np.zeros(len(samples) + 10, dtype=np.complex64) # stores values, each iteration we need the previous 2 values plus current value
+out_rail = np.zeros(len(samples) + 10, dtype=np.complex64) 
 i_in = 0 # input samples index
 i_out = 2 # output index (let first two outputs be 0)
 
@@ -155,7 +155,7 @@ while i_out < len(samples) and i_in+32 < len(samples):
     i_out += 1 # increment output index
 x = out[2:i_out] # remove the first two, and anything after i_out (that was never filled out)
 
-# Plot constellation to make sure it looks right
+# Plot the constellation 
 plt.plot(np.real(x[0:1000]), np.imag(x[0:1000]), '.')
 plt.grid(True)
 plt.show()
